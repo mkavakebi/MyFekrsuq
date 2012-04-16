@@ -1,0 +1,383 @@
+/*
+Theme Name: CreativeFekrsuqTheme
+Author: MoHamad Bazr-car
+Description: Designed for fekrsuq competition
+Version: 1.8.3, (8th Competition)
+*/
+
+html * {
+	padding:0;
+	margin:0;
+}
+
+body {
+	padding:0;margin:0; 
+	background-color:white;
+	direction:rtl;
+	text-align:justify;
+	color:Gray;
+	font-family: Tahoma, Arial;
+	font-size:11px;
+}
+
+body a {
+	color:#669933;
+	text-decoration:none;
+}
+
+.widget , .widget li
+{
+	list-style-type:none;
+	padding: 3px 7px 3px 1px;
+	direction:rtl;
+}
+.widgettitle
+{
+	font-size:11px;
+	font-weight:bold;
+}
+
+#mainpage
+{
+	width:100% !important;
+}
+
+#topmenu
+{
+	direction:ltr;
+	width:100%;height:58px;
+	background: #2b2c30 url('images/topmenu-back.jpg') repeat-x top left;
+}
+#headbox
+{
+	width:100%;height:166px;
+	background: #83c444 url('images/headbox-back.jpg') repeat-x top left;
+}
+#contentbox
+{
+	padding-top:15px;
+	width:100%;
+	background: white url('images/contentbox-head.jpg') repeat-x top left;	
+}
+
+#contentbox div
+{
+	text-align:justify;
+	margin:15px;
+	width:300px;
+}
+#contentbox tr
+{
+	vertical-align:top;
+}
+.logo
+{
+	background: url('images/8th-logo.gif') 25px 15px no-repeat;
+	width:100%;height:100%;
+	padding: 0px 50px 0px 300px;
+	float:left;
+}
+.logo span
+{
+	margin:0px 3px 0px 3px;
+	padding:35px 5px 1px 5px;
+	vertical-align:bottom;
+	height:22px;
+	display:inline-block;
+	color:gray;
+	cursor:pointer;
+}
+.logo span:hover
+{
+	background:gray url('images/topmenu-light.jpg') repeat-x;
+	color:#669933;
+}
+.creative
+{
+	width:319px;height:100%;
+	background: url('images/creative-back.jpg') bottom left no-repeat;
+	float:left;
+}
+.creative div
+{
+	background: url('images/creative-competition.gif') no-repeat;
+	width:272px;height:18px;
+	position:relative;left:170px;top:36px;
+}
+#minipanel
+{
+	direction:rtl;
+	background: black url('images/minipanel-back.gif') top left no-repeat;
+	opacity:0.5;filter:alpha(opacity=50);
+	margin: 30px 0px 30px 30px;
+	padding:0px;
+	height:100px;width:40px;
+	float:right;
+	overflow:hidden;
+	/**/
+}
+#minipanel:hover
+{
+	opacity:1;filter:alpha(opacity=100);
+	width:200px;
+}
+#minipanel table
+{
+	width:200px;
+	background-color:#1f1c27;
+	height:100%;
+	float:left;
+}
+#minipanel .tricon
+{
+	background: url('images/minipanel-back.jpg') no-repeat;
+	width:32px
+}
+#minipanel .trtexts
+{
+	border-bottom:solid 1px #a1d954;
+	border-top:solid 1px #a1d954;
+}
+.textblock
+{
+	width:300px;
+	display:inline-block;
+	vertical-align:top;
+	/*border: solid 1px silver;*/
+	margin:0px 50px 0px 0px;
+}
+.mytexts 
+{
+	direction:rtl;
+	text-align:justify;
+	vertical-align:baseline;
+	font-family:Tahoma, Arial;
+	font-size:inherit;
+	line-height: 20px;
+}
+.divtitle
+{ /*Not used now!*/
+	width:22px;height:20px;
+	line-height: 20px;
+	padding:4px 30px 6px 2px;
+	background: url('images/textsicon.gif') right center no-repeat;
+	display:inline-block;
+}
+.textsicon
+{
+	width:22px;height:20px;
+	padding:0px 1px 0px 7px;
+}
+#footer
+{
+	padding:45px 0px 0px 0px;
+	width:100%;
+	text-align:center;
+	direction:ltr;
+}
+.archivehead
+{
+	direction:rtl;
+	text-align:right;
+	vertical-align:top;
+}
+.pagetitle {
+	text-align:right;
+	color:black;
+	font-weight:normal;
+}
+.navigation {
+	margin-top:3px;
+}
+.navigation .alignleft{
+	float:left;
+}
+.navigation .alignright{
+	float:right;
+}
+.navigation a{
+	color:#66aa33;
+	text-align:left;
+}
+
+
+
+
+body.normal .entry p {
+	font-size:12px;
+
+}
+
+body.medium .entry p {
+	font-size:16px;
+}
+
+body.big .entry p {
+	font-size:20px;
+}
+
+.meta {
+	position:relative;
+	z-index:100;
+	margin-top:10px;
+	height:67px;
+	width:80%;
+	margin-left:8%;
+}
+
+.meta .all {
+	background:url(images/read.jpg);
+	width:79px;
+	height:30px;
+	text-indent:-100000px;
+	display:block;
+	margin-top:20px;
+	float:left;
+	
+}
+
+.meta .comments{
+	background:url(images/comments.jpg);
+	width:95px;
+	height:65px;
+	display:block;
+	text-decoration:none;
+	font-size:14px;
+	color:#49320e;
+	float:right;
+}
+
+.meta .comments b {
+	display:block;
+	width:100%;
+	text-align:center;
+	font-weight:normal;
+	padding-top:10px;
+}
+
+.meta small {
+	text-align:justify;
+}
+
+#respond {
+	margin-top:20px;
+	width:500px;
+}
+
+#respond h3 {
+	text-align:left;
+	font-size:40px;
+}
+
+#respond textarea {
+	width:90%;
+	text-align:left;
+}
+
+#respond form {
+	margin-top:10px;
+}
+
+#respond p {
+	display:block;
+	width:100%;
+	text-align:left;
+	margin: 5px 0px 5px 0px;
+}
+#respond INPUT {
+	text-align:left;
+
+}
+
+.commentlist {
+	width:300px;
+	direction:rtl;
+}
+
+/*AVS*/
+.commentli
+{
+	padding:1px 3px 3px 1px;
+	margin:1px 35px 10px 1px;
+	border-bottom:1px solid #CCCCCC;
+}
+.commentli p
+{
+	margin-right:5px;
+}
+
+.commentlist li a {
+	color:#669933;
+}
+
+.comment {
+	text-align:right;
+	color:#343434;
+}
+
+.comment-author {
+
+}
+.comment img {
+	/*float:left;*/
+	display:inline;
+	margin-right:5px;
+}
+
+
+/*
++----------------------------------------------------------------+
+|																							|
+|	WordPress 2.6 Plugin: WP-PageNavi 2.40									|
+|	Copyright (c) 2008 Lester "GaMerZ" Chan									|
+|																							|
+|	File Written By:																	|
+|	- Lester "GaMerZ" Chan															|
+|	- http://lesterchan.net															|
+|																							|
+|	File Information:																	|
+|	- Page Navigation CSS Style													|
+|	- wp-content/plugins/wp-pagenavi/pagenavi-css.css					|
+|																							|
++----------------------------------------------------------------+
+*/
+
+.wp-pagenavi {
+	margin-top:40px;
+	padding-left:35px;
+}
+
+.wp-pagenavi a, .wp-pagenavi a:link {
+	text-decoration: none;
+	float:left;
+	line-height:35px;
+	margin-left:15px;
+}
+
+.wp-pagenavi span.pages {
+	background:url(images/pages.jpg) 0px 3px no-repeat;
+	width:43px;
+	line-height:35px;
+	display:block;
+	text-indent:-1000000px;
+	border:0;
+	float:left;
+	margin-left:5px;
+}
+
+.wp-pagenavi span.current {
+	background:url(images/currentPage.jpg);
+	width:49px;
+	line-height:35px;
+	display:block;
+	float:left;
+	margin-left:15px;
+}
+.wp-pagenavi span.extend {
+	padding: 2px 4px 2px 4px; 
+	margin: 2px;	
+	border: 1px solid #000000;
+	color: #000000;
+	background-color: #FFFFFF;
+	border:1px solid red;
+}

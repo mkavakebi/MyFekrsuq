@@ -1,0 +1,31 @@
+<?php border_start();?>
+	<?php
+	$stmt1 = $dbh->prepare("SELECT *,ordu+code+sudoku+chomp as sum FROM emtiaz WHERE groupid=?");
+	$stmt1->execute(array($MyGr->ID()));	
+	$db_emtiaz =$stmt1->fetch();
+	?>
+	<p style="text-align: center;">امتیاز کسب شده از مرحله ی اول</p>
+	<br/>
+	<p style="text-align: center;">سوالات اینترنتی</p>
+	<table border="0" style="border-collapse: collapse ;FONT-SIZE: 9pt; FONT-FAMILY: Tahoma;width:100%;" dir="rtl" cellspacing="1" align="center">
+	<tr  align="center" >
+		<th width="20%" height="18">اردو</th>
+		<th width="20%" height="18">رمز نگاری</th>
+		<th width="20%" height="18">سودوکو</th>
+		<th width="20%" height="18">شکلات</th>
+		<th width="20%" height="18">جمع</th>
+	</tr>
+	<tr  align="center">
+		<td width="20%" height="18"><?php	echo $db_emtiaz ['ordu']?>/12</td>
+		<td width="20%" height="18"><?php	echo $db_emtiaz ['code']?>/10</td>
+		<td width="20%" height="18"><?php	echo $db_emtiaz ['sudoku']?>/10</td>
+		<td width="20%" height="18"><?php	echo $db_emtiaz ['chomp']?>/10</td>
+		<td width="20%" height="18"><?php	echo $db_emtiaz ['sum']?>/42</td>
+	</tr>
+	</table>
+	<a href="eteraz.php" style="text-align: ">اعتراض به داور در مورد سوالات</a>
+	<p style="text-align: center;color: red">تذکر در مورد امتیاز سوال کتیبه: جواب های تعدادی از دوستان تصحیح دوباره شده است ومشکل پاسخ 10 گروه که بر اثر تفاوت ک فارسی و عربی بوجود آمده بود حل شد.</p>
+	<p style="text-align: center;color: red">تذکر در مورد امتیاز سوال سودوکو: تغییر کوچکی در امتیاز ها داده شده است.گروههایی که سودوکو را کامل کرده ولی نیم سطر و ستون ها را رعایت نکرده اند 4 امتیاز میگیرند.</p>	
+	<p style="text-align: center;color: red">تذکر :سوال اردو به علت اهمیت 12 امتیازی شد</p>
+<?php border_end(); ?>
+<br/>

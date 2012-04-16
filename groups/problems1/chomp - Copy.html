@@ -1,0 +1,179 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Chomp</title>
+<script language="JavaScript">
+var winlink='';
+
+var blank = "problems/chomp_files/blank.gif";
+var brown = "problems/chomp_files/brown.jpg";
+var poison = "problems/chomp_files/poison.jpg";
+
+var c=7;                //c = # columns.  Require 6 <= c <= 10.
+var x,y;
+var ur='';
+var turn=0;
+var 
+ppos=[1,12,23,34,45,56,113,122,224,235,246,336,355,1114,1125,1133,1222,2226,2255,2335];
+var n = [];
+var ans='';
+var box = [];
+
+function generatecode(){
+    winlink=myurl+'&token='+ans;
+    if (winlink!=''){
+    	document.write('<h1></b><a href="');
+    	document.write(winlink);
+    	document.write('">شما این بازی را بردید برای ثبت امتیاز اینجا را کلیک کنید!</a></h1>');
+    	}
+   winlink='';
+}
+
+for (var i=1;i<=4;i++) {
+    box[i]=[];
+}
+
+function pausecomp(millis) 
+{
+var date = new Date();
+var curDate = null;
+
+do { curDate = new Date(); } 
+while(curDate-date < millis);
+}
+</script>
+<script language="JavaScript">
+function yourChoice(u,v) {
+    if (box[u][v]==1) {
+        Move(u,v);
+	encode();
+	if (n[1]+n[2]==1) {
+	    generatecode();
+	    alert("Good work!\n You won!");
+	    return;
+	}
+	x=findMove();
+	pausecomp(500);
+	Move(x,y+1);
+	if (box[1][2]+box[2][1]==0){
+	        alert("Nice try,\n but I won!");
+	        generatecode();
+	        return;
+	    }
+    }
+}
+
+function Move(x,y) {
+	ans=ans+';'+19*x+y;
+    for (var k1=x;k1<=4;k1++) {
+	for (var k2=y;k2<=c;k2++) {
+            document.images[(4-k1)*c+k2-1+shiftind].src=blank;
+	    box[k1][k2]=0;
+        }
+    }
+}
+
+function encode() {
+    for (var i=1;i<5;i++) {
+        n[i]=0;
+	for (var j=1;j<=c;j++) {
+	    n[i]=n[i]+box[i][j];
+	}
+    }
+    n[1]=n[1]+1;
+}
+</script>
+<script language="JavaScript">
+function findMove() {
+    var t=10
+    var k=ppos.length-1;
+    for (y=n[1]-1;y>=n[2];y--) {
+        val=y+t*(n[2]+t*(n[3]+t*n[4]));
+	while (val<ppos[k]) k--;
+	if (val==ppos[k]) {return 1};
+    }
+    for (y=n[2]-1;y>=n[3];y--) {
+        val=n[1]+t*(y+t*(n[3]+t*n[4]));
+	while (val<ppos[k]) k--;
+	if (val==ppos[k]) {return 2};
+        val=y+t*(y+t*(n[3]+t*n[4]));
+	while (val<ppos[k]) k--;
+	if (val==ppos[k]) {return 1};
+    }
+    for (y=n[3]-1;y>=n[4];y--) {
+        val=n[1]+t*(n[2]+t*(y+t*n[4]));
+	while (val<ppos[k]) k--;
+	if (val==ppos[k]) {return 3};
+        val=n[1]+t*(y+t*(y+t*n[4]));
+	while (val<ppos[k]) k--;
+	if (val==ppos[k]) {return 2};
+        val=y+t*(y+t*(y+t*n[4]));
+	while (val<ppos[k]) k--;
+	if (val==ppos[k]) {return 1};
+    }
+    for (y=n[4]-1;y>=0;y--) {
+        val=n[1]+t*(n[2]+t*(n[3]+t*y));
+	while (val<ppos[k]) k--;
+	if (val==ppos[k]) {return 4};
+        val=n[1]+t*(n[2]+t*(y+t*y));
+	while (val<ppos[k]) k--;
+	if (val==ppos[k]) {return 3};
+        val=n[1]+t*(y+t*(y+t*y));
+	while (val<ppos[k]) k--;
+	if (val==ppos[k]) {return 2};
+        val=y+t*(y+t*(y+t*y));
+	while (val<ppos[k]) k--;
+	if (val==ppos[k]) {return 1};
+    }
+   if ((Math.random()>.4) && (n[4]>0)) {
+       y=n[4]-1;
+       return 4;
+   } else if ((Math.random()>.5) && (n[3]>0)) {
+       y=n[3]-1;
+       return 3;
+   } else if ((Math.random()>.67) && (n[2]>0)) {
+       y=n[2]-1;
+       return 2;
+   } else {
+       y=n[1]-1;
+       return 1;
+   }
+}
+</script>
+<script language="JavaScript">
+function playAgain() {
+    for (var i=4;i>0;i--) {
+	for (var j=1;j<=c;j++) {
+	    document.images[c*(i-1)+j-1+shiftind].src= brown;
+	    box[i][j]=1
+	}
+    }
+    document.images[c*3+shiftind].src= poison;
+    box[1][1]=0;
+    ans='';
+}
+
+</script>
+</head><body>
+<div id="gamepad" style="text-align:center;font-size:10px;width:500px;">
+<input type=hidden id="groupid" value="10" style="width:100px;"/>
+<script language="JavaScript">
+document.write("<form name=game><table border=1 cellpadding=0 cellspacing=0><tr>");
+for (var i=4;i>0;i--) {
+    for (var j=1;j<=c;j++) {
+        if(turn==0){
+        document.write('<td><a href="javascript:yourChoice('+i+','+j+')">'
+        +'<img src="" border=0 height=40 width=40></a></td>');
+        }else{
+            document.write('<td>'
+                    +'<img src="" border=0 height=40 width=40></td>');
+            }
+    }
+    document.write("</tr><tr>");
+}
+document.write("</tr></table>");
+document.write("<br/><input id='newgame' type=button value='New Game' onClick='playAgain();'>");
+document.write("</form>");
+playAgain();
+</script>
+</div>
+</body></html>
